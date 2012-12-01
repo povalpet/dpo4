@@ -1,5 +1,4 @@
 package model;
 
-public interface IModel {
-	
+public interface IModel {	
 }
