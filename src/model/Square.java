@@ -2,7 +2,7 @@ package model;
 
 import visitor.Visitor;
 
-public class Rectangle extends IGeometry {
+public class Square extends IGeometry {
 	
 	public void setSize(int size) {
 		this.size = size;

@@ -1,14 +1,14 @@
 package controller;
 
-import model.IModel;
+import model.GeometryModel;
 import observer.Observer;
 import view.View;
 
-public abstract class AbstractController implements Observer{
+public abstract class AbstractController implements Observer {
 	protected View view;
-	protected IModel model;
+	protected GeometryModel model;
 	
-	public AbstractController(View view, IModel model) {
+	public AbstractController(View view, GeometryModel model) {
 		this.view = view;
 		this.model = model;
 	}

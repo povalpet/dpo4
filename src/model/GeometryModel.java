@@ -35,7 +35,7 @@ public class GeometryModel implements Observable {
 	
 	public void addNewRectangle(int xCoord, int yCoord, int size) {
 		if(size > 0) {
-			IGeometry rectangle = new Rectangle();
+			IGeometry rectangle = new Square();
 			rectangle.setX(xCoord);
 			rectangle.setY(yCoord);
 			rectangle.setSize(size);

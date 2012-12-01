@@ -1,11 +1,11 @@
 package controller;
 
-import model.IModel;
+import model.GeometryModel;
 import view.TableView;
 
 public class TableController extends AbstractController {
 
-	public TableController(TableView view, IModel model) {
+	public TableController(TableView view, GeometryModel model) {
 		super(view, model);
 	}
 

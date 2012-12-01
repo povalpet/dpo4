@@ -1,12 +1,10 @@
 package view;
 
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import model.Circle;
 import model.GeometryModel;
-import model.Rectangle;
+import model.Square;
 
 public class DrawView extends View {
 
@@ -18,42 +16,16 @@ public class DrawView extends View {
 	public DrawView(GeometryModel model) {
 		super(model);
 		this.setVisible(true);
-		this.addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("click!");
-				int x = e.getX();
-				int y = e.getY();
-				if (e.getButton() == e.BUTTON1) {
-					// pridat kolecko
-				} else if (e.getButton() == e.BUTTON2) {
-					// pridat ctverecek
-				}
-			}
-		});
 	}
 
 	@Override
 	public void draw(Circle circle) {
-		// TODO pridat kolecko do swingu
+		System.out.println("Circle!");
 	}
 
 	@Override
-	public void draw(Rectangle rectangle) {
-		// TODO pridat ctverecek
+	public void draw(Square square) {
+		System.out.println("Square!");
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import javax.swing.JTable;
 import view.table.Table;
 import model.Circle;
 import model.GeometryModel;
-import model.Rectangle;
+import model.Square;
 
 public class TableView extends View {
 
@@ -18,7 +18,7 @@ public class TableView extends View {
 	protected final JTable rectangleTable;
 	
 	private Table<Circle> circleTableValues;
-	private Table<Rectangle> rectangleTableValues;
+	private Table<Square> rectangleTableValues;
 
 	public TableView(GeometryModel model) {
 		super(model);
@@ -33,7 +33,7 @@ public class TableView extends View {
 		this.circleTableValues = new Table<Circle>();
 		this.circleTable.setModel(this.circleTableValues);
 		
-		this.rectangleTableValues = new Table<Rectangle>();
+		this.rectangleTableValues = new Table<Square>();
 		this.rectangleTable.setModel(this.rectangleTableValues);
 		
 		this.add(circleTable);
@@ -47,7 +47,7 @@ public class TableView extends View {
 	}
 
 	@Override
-	public void draw(Rectangle rectangle) {
+	public void draw(Square rectangle) {
 		this.rectangleTableValues.addRow(rectangle);
 	}
 	

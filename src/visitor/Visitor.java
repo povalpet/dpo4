@@ -1,9 +1,9 @@
 package visitor;
 
 import model.Circle;
-import model.Rectangle;
+import model.Square;
 
 public interface Visitor {
 	void draw(Circle circle);
-	void draw(Rectangle rectangle);
+	void draw(Square rectangle);
 }
