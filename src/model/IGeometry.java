@@ -1,6 +1,8 @@
 package model;
 
-public abstract class IGeometry {
+import visitor.Visitable;
+
+public abstract class IGeometry  implements Visitable{
 	
 	protected int id;
 	protected int x;
