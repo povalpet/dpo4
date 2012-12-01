@@ -20,6 +20,8 @@ public class GeometryModel implements IModel, Observable {
 		this.objectList.put(new Integer(geometry.getId()), geometry);
 		this.notifyObservers();
 	}
+	
+	public 
 
 	@Override
 	public void attach(Observer observer) {
