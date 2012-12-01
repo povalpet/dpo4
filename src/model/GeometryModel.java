@@ -3,7 +3,7 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GeometryModel implements IModel {
+public class GeometryModel extends Model {
 	private int id;
 	private Map<Integer,IGeometry> objectList;
 	
