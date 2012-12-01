@@ -7,6 +7,8 @@ public class TableController extends AbstractController {
 
 	public TableController(TableView view, GeometryModel model) {
 		super(view, model);
+		
+		model.attach(this);
 	}
 
 	@Override

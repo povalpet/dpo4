@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import view.table.Table;
@@ -14,8 +19,6 @@ public class TableView extends View {
 	 */
 	private static final long serialVersionUID = 1216369742317050061L;
 	
-	protected final JTable circleTable;
-	protected final JTable rectangleTable;
 	
 	private Table<Circle> circleTableValues;
 	private Table<Square> rectangleTableValues;
@@ -23,21 +26,40 @@ public class TableView extends View {
 	public TableView(GeometryModel model) {
 		super(model);
 		
-		this.circleTable = new JTable();
-		this.rectangleTable = new JTable();
-		
 		this.init();
 	}
 	
 	private void init() {
+		JPanel panel = new JPanel();
+		panel.setSize(360,410);
+		FlowLayout layout = new FlowLayout();
+		layout.setAlignment(FlowLayout.LEFT);
+		panel.setLayout(layout);
+		
+		JScrollPane circleScrollPane = new JScrollPane();
 		this.circleTableValues = new Table<Circle>();
-		this.circleTable.setModel(this.circleTableValues);
+		JTable circleTable = new JTable();
+		circleTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		circleTable.setModel(this.circleTableValues);
+		circleTable.setFillsViewportHeight(true);
 		
+		JScrollPane squareScrollPane = new JScrollPane();
+        JTable squareTable = new JTable();
+        squareTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		this.rectangleTableValues = new Table<Square>();
-		this.rectangleTable.setModel(this.rectangleTableValues);
+		squareTable.setModel(this.rectangleTableValues);
+		squareTable.setFillsViewportHeight(true);
 		
-		this.add(circleTable);
-		this.add(rectangleTable);
+		Dimension d = new Dimension(303, 200);
+		
+		circleScrollPane.setViewportView(circleTable);
+		circleScrollPane.setPreferredSize(d);
+		squareScrollPane.setViewportView(squareTable);
+		squareScrollPane.setPreferredSize(d);
+		
+		panel.add(circleScrollPane);
+		panel.add(squareScrollPane);
+		this.add(panel);
 		this.setVisible(true);
 	}
 

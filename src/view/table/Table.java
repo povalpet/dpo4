@@ -59,6 +59,16 @@ public class Table<T extends IGeometry> extends AbstractTableModel{
         }
     }
 	
+	@Override
+    public Class<?> getColumnClass(int columnIndex) {
+        return Integer.class;
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return columnIndex != 0;
+    }
+	
 	public void addRow(T t) {
 		if (!objectList.contains(t)) {
             objectList.add(t);

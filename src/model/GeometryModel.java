@@ -11,7 +11,7 @@ import observer.Observer;
 public class GeometryModel implements Observable {
 	private Map<Integer,IGeometry> objectList;
 	private List<Observer> observerList;
-	private static int id = 0;
+	private static int id = 1;
 	
 	public GeometryModel() {
 		this.objectList = new HashMap<Integer, IGeometry>();

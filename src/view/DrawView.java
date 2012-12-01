@@ -17,6 +17,7 @@ public class DrawView extends View {
 
 	public DrawView(GeometryModel model) {
 		super(model);
+		
 		this.setVisible(true);
 	}
 
