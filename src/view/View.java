@@ -1,12 +1,17 @@
 package view;
 
+import java.util.Collection;
 import java.util.Map;
+
+import javax.swing.JComponent;
 
 import model.GeometryModel;
 import model.IGeometry;
 import observer.Observer;
+import visitor.Visitor;
 
-public abstract class View implements Observer {
+@SuppressWarnings("serial")
+public abstract class View extends JComponent implements Observer, Visitor {
 	
 	protected GeometryModel model;
 	
@@ -20,6 +25,10 @@ public abstract class View implements Observer {
 		this.display(this.model.getAll());
 	}
 	
-	public abstract void display(Map<Integer, IGeometry> map);
+	public void display(Collection<IGeometry> collection) {
+		for (IGeometry geometry : collection) {
+			geometry.accept(this);
+		}
+	}
 
 }

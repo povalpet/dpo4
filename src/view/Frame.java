@@ -13,6 +13,8 @@ public class Frame extends JFrame {
 		setSize(800, 500);
 		setTitle("DPO 4: MVC");
 		setVisible(true);
+		this.add(leftView);
+		this.add(rightView);
 	}
 
 }

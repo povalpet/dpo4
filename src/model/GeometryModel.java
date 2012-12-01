@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class GeometryModel implements Observable {
 		}
 	}
 
-	public Map<Integer, IGeometry> getAll() {
-		return objectList;
+	public Collection<IGeometry> getAll() {
+		return objectList.values();
 	}
 }
