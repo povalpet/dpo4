@@ -18,6 +18,7 @@ public class Frame extends JFrame {
 		setLayout(new BorderLayout());
 		setSize(800, 500);
 		setTitle("DPO 4: MVC");
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Button clearButton = new Button("Clear all");
 		
@@ -31,8 +32,6 @@ public class Frame extends JFrame {
 		contentPane.add(rightView, BorderLayout.NORTH);
 		contentPane.add(leftView, BorderLayout.CENTER);
 		contentPane.add(clearButton, BorderLayout.SOUTH);
-		
-//		pack();
 		
 		this.setVisible(true);
 		

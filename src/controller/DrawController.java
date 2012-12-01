@@ -9,8 +9,6 @@ import view.DrawView;
 
 public class DrawController extends AbstractController implements MouseListener {
 
-	private GeometryModel model;
-	
 	public static final int DEFAULT_RADIUS = 30;
 
 	public DrawController(DrawView view, GeometryModel model) {
@@ -20,12 +18,13 @@ public class DrawController extends AbstractController implements MouseListener 
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("click!");
 		int x = e.getX();
 		int y = e.getY();
 		if (e.getButton() == MouseEvent.BUTTON1) {
+			// left mouse button
 			model.addNewCircle(x, y, DEFAULT_RADIUS);
-		} else if (e.getButton() == MouseEvent.BUTTON2) {
+		} else {
+			// other buttons
 			model.addNewRectangle(x, y, DEFAULT_RADIUS);
 		}
 	}

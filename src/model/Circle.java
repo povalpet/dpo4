@@ -8,5 +8,9 @@ public class Circle extends IGeometry {
 	public void accept(Visitor visitor) {
 		visitor.draw(this);		
 	}
+	
+	public int getRadius() {
+		return this.getSize();
+	}
 
 }

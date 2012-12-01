@@ -7,6 +7,8 @@ import model.GeometryModel;
 import model.Square;
 
 public class DrawView extends View {
+	
+	private boolean drawn = false;
 
 	/**
 	 * 
@@ -20,17 +22,22 @@ public class DrawView extends View {
 
 	@Override
 	public void draw(Circle circle) {
-		System.out.println("Circle!");
+		Graphics g = getGraphics();
+		g.drawOval(circle.getX(), circle.getY(), circle.getRadius(), circle.getRadius());
 	}
 
 	@Override
 	public void draw(Square square) {
-		System.out.println("Square!");
+		Graphics g = getGraphics();
+		g.drawRect(square.getX(), square.getY(), square.getSize(), square.getSize());
 	}
 
 	@Override
 	protected void paintComponent(Graphics g) {
-		g.drawRect(10, 10, 10, 10);
+		if (!this.drawn) {
+			g.drawRect(10, 10, 10, 10);
+			drawn = true;
+		}
 	}
 	
 }
