@@ -65,5 +65,10 @@ public class Table<T extends IGeometry> extends AbstractTableModel{
             fireTableRowsInserted(objectList.size() - 1, objectList.size() - 1);
         }
 	}
+	
+	public void clear() {
+        fireTableRowsDeleted(0, objectList.size() - 1);
+        objectList.clear();
+    }
 
 }

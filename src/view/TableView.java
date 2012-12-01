@@ -46,5 +46,13 @@ public class TableView extends View {
 	public void draw(Rectangle rectangle) {
 		this.rectangleTableValues.addRow(rectangle);
 	}
+	
+	/**
+	 * Vycisteni layoutu kdyz se zmackne reset button
+	 */
+	public void reset() {
+		this.circleTableValues.clear();
+		this.rectangleTableValues.clear();
+	}
 
 }
