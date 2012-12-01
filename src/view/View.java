@@ -15,6 +15,7 @@ public abstract class View extends JComponent implements Observer, Visitor {
 	protected GeometryModel model;
 	
 	public View(GeometryModel model) {
+		super();
 		this.model = model;
 		this.model.attach(this);
 	}
