@@ -11,15 +11,41 @@ import observer.Observer;
 public class GeometryModel implements Observable {
 	private Map<Integer,IGeometry> objectList;
 	private List<Observer> observerList;
+	private static int id = 0;
 	
 	public GeometryModel() {
 		this.objectList = new HashMap<Integer, IGeometry>();
 		this.observerList = new ArrayList<Observer>();
 	}
 	
-	public void addNewGeometry(IGeometry geometry) {
-		this.objectList.put(new Integer(geometry.getId()), geometry);
-		this.notifyObservers();
+	public void addNewCircle(int xCoord, int yCoord, int radius) {
+		if(radius > 0) {
+			IGeometry circle = new Circle();
+			circle.setX(xCoord);
+			circle.setY(yCoord);
+			circle.setSize(radius);
+			circle.setId(id++);
+			this.objectList.put(new Integer(circle.getId()), circle);
+			
+			this.notifyObservers();
+		} else {
+			throw new IllegalArgumentException("Radius must be > 0.");
+		}
+	}
+	
+	public void addNewRectangle(int xCoord, int yCoord, int size) {
+		if(size > 0) {
+			IGeometry rectangle = new Rectangle();
+			rectangle.setX(xCoord);
+			rectangle.setY(yCoord);
+			rectangle.setSize(size);
+			rectangle.setId(id++);
+			this.objectList.put(new Integer(rectangle.getId()), rectangle);
+			
+			this.notifyObservers();
+		} else {
+			throw new IllegalArgumentException("Size must be > 0.");
+		}
 	}
 	
 	public void clearAll() {
