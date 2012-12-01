@@ -1,7 +1,6 @@
 package view;
 
 import java.util.Collection;
-import java.util.Map;
 
 import javax.swing.JComponent;
 
@@ -16,6 +15,7 @@ public abstract class View extends JComponent implements Observer, Visitor {
 	protected GeometryModel model;
 	
 	public View(GeometryModel model) {
+		super();
 		this.model = model;
 		this.model.attach(this);
 	}

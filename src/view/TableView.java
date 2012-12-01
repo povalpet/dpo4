@@ -34,7 +34,11 @@ public class TableView extends View {
 		this.circleTable.setModel(this.circleTableValues);
 		
 		this.rectangleTableValues = new Table<Rectangle>();
-		this.rectangleTable.setModel(this.rectangleTableValues);		
+		this.rectangleTable.setModel(this.rectangleTableValues);
+		
+		this.add(circleTable);
+		this.add(rectangleTable);
+		this.setVisible(true);
 	}
 
 	@Override
