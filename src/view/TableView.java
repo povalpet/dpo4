@@ -1,24 +1,19 @@
 package view;
 
+import java.util.Map;
+
+import model.GeometryModel;
 import model.IGeometry;
-import model.Model;
 
 public class TableView extends View {
 
-	public TableView(Model model) {
+	public TableView(GeometryModel model) {
 		super(model);
 	}
 
 	@Override
-	public void display(IGeometry geometry) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void listen(Model model) {
-		// TODO Auto-generated method stub
-		
+	public void display(Map<Integer, IGeometry> map) {
+		// TODO namlatit do tabulky
 	}
 
 }

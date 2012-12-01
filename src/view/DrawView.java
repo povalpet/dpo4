@@ -1,24 +1,19 @@
 package view;
 
+import java.util.Map;
+
+import model.GeometryModel;
 import model.IGeometry;
-import model.Model;
 
 public class DrawView extends View {
 
-	public DrawView(Model model) {
+	public DrawView(GeometryModel model) {
 		super(model);
 	}
 
 	@Override
-	public void display(IGeometry geometry) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void listen(Model model) {
-		// TODO Auto-generated method stub
-		
+	public void display(Map<Integer, IGeometry> map) {
+		// TODO nahazet do swingu
 	}
 
 }
