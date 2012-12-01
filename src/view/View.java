@@ -1,16 +1,25 @@
 package view;
 
-import model.IGeometry;
-import model.Model;
+import java.util.Map;
 
-public abstract class View {
+import model.GeometryModel;
+import model.IGeometry;
+import observer.Observer;
+
+public abstract class View implements Observer {
 	
-	public View(Model model) {
-		this.listen(model);
+	protected GeometryModel model;
+	
+	public View(GeometryModel model) {
+		this.model = model;
+		this.model.attach(this);
 	}
 	
-	protected abstract void listen(Model model);
-
-	public abstract void display(IGeometry geometry);
+	@Override
+	public void update() {
+		this.display(this.model.getAll());
+	}
+	
+	public abstract void display(Map<Integer, IGeometry> map);
 
 }

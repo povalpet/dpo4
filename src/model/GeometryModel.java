@@ -7,7 +7,7 @@ import java.util.Map;
 import observer.Observable;
 import observer.Observer;
 
-public class GeometryModel implements IModel, Observable {
+public class GeometryModel implements Observable {
 	private Map<Integer,IGeometry> objectList;
 	private List<Observer> observerList;
 	
@@ -36,5 +36,9 @@ public class GeometryModel implements IModel, Observable {
 		for(Observer ob : observerList) {
 			ob.update();
 		}
+	}
+
+	public Map<Integer, IGeometry> getAll() {
+		return objectList;
 	}
 }
