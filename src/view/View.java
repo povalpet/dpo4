@@ -1,7 +1,6 @@
 package view;
 
 import java.util.Collection;
-import java.util.Map;
 
 import javax.swing.JComponent;
 
