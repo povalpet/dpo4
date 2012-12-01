@@ -7,6 +7,7 @@ public abstract class IGeometry  implements Visitable{
 	protected int id;
 	protected int x;
 	protected int y;
+	protected int size;
 	
 	public int getId() {
 		return id;
@@ -26,5 +27,12 @@ public abstract class IGeometry  implements Visitable{
 	public void setY(int y) {
 		this.y = y;
 	}	
+	public int getSize()
+	{
+		return this.size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
 
 }
