@@ -1,6 +1,7 @@
 package dpo;
 
 import controller.DrawController;
+import controller.TableController;
 import model.GeometryModel;
 import view.DrawView;
 import view.Frame;
@@ -19,6 +20,7 @@ public class Main {
 		TableView tableView = new TableView(model);
 
 		new DrawController(drawView, model);
+		new TableController(tableView, model);
 		
 		Frame frame = new Frame(drawView, tableView);
 	}

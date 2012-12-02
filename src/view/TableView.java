@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.TableModelListener;
 
 import view.table.Table;
 import model.Circle;
@@ -22,10 +23,13 @@ public class TableView extends View {
 	
 	private Table<Circle> circleTableValues;
 	private Table<Square> rectangleTableValues;
+	private JTable circleTable;
+	private JTable squareTable;
 
 	public TableView(GeometryModel model) {
 		super(model);
-		
+		circleTable = new JTable();
+		squareTable = new JTable();
 		this.init();
 	}
 	
@@ -38,13 +42,13 @@ public class TableView extends View {
 		
 		JScrollPane circleScrollPane = new JScrollPane();
 		this.circleTableValues = new Table<Circle>();
-		JTable circleTable = new JTable();
+		
 		circleTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		circleTable.setModel(this.circleTableValues);
 		circleTable.setFillsViewportHeight(true);
 		
 		JScrollPane squareScrollPane = new JScrollPane();
-        JTable squareTable = new JTable();
+        
         squareTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		this.rectangleTableValues = new Table<Square>();
 		squareTable.setModel(this.rectangleTableValues);
@@ -79,6 +83,11 @@ public class TableView extends View {
 	public void reset() {
 		this.circleTableValues.clear();
 		this.rectangleTableValues.clear();
+	}
+	
+	public void addCellChangeListener(TableModelListener l) {
+		circleTableValues.addTableModelListener(l);
+		rectangleTableValues.addTableModelListener(l);
 	}
 
 }

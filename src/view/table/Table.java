@@ -77,8 +77,34 @@ public class Table<T extends IGeometry> extends AbstractTableModel{
 	}
 	
 	public void clear() {
-        fireTableRowsDeleted(0, objectList.size() - 1);
-        objectList.clear();
+		if(objectList.size() > 0) {
+	        fireTableRowsDeleted(0, objectList.size() - 1);
+	        objectList.clear();
+		}
     }
+	
+	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        T t = objectList.get(rowIndex);
+        int value = (Integer) aValue;
+
+        switch (columnIndex) {
+            case 1:
+                t.setX(value);
+                break;
+            case 2:
+                t.setY(value);
+                break;
+            case 3:
+                t.setSize(value);
+                break;
+            default:
+                throw new IllegalArgumentException("");
+        }
+        fireTableRowsUpdated(rowIndex, rowIndex);
+    }
+
+	public IGeometry getRow(int row) {
+		return objectList.get(row);
+	}
 
 }

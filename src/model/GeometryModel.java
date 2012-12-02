@@ -78,4 +78,11 @@ public class GeometryModel implements Observable {
 	public Collection<IGeometry> getAll() {
 		return objectList.values();
 	}
+	
+	public void updateGeometry(IGeometry geometry) {
+		this.objectList.remove(new Integer(geometry.getId()));
+		this.objectList.put(new Integer(geometry.getId()), geometry);
+		
+		this.notifyObservers();
+	}
 }

@@ -22,6 +22,7 @@ public abstract class View extends JComponent implements Observer, Visitor {
 	
 	@Override
 	public void update() {
+		reset();
 		this.display(this.model.getAll());
 	}
 	
@@ -30,5 +31,7 @@ public abstract class View extends JComponent implements Observer, Visitor {
 			geometry.accept(this);
 		}
 	}
+	
+	public abstract void reset();
 
 }

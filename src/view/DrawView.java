@@ -8,7 +8,6 @@ import model.Square;
 
 public class DrawView extends View {
 	
-	private boolean drawn = false;
 
 	/**
 	 * 
@@ -34,11 +33,8 @@ public class DrawView extends View {
 	}
 
 	@Override
-	protected void paintComponent(Graphics g) {
-		if (!this.drawn) {
-			g.drawRect(10, 10, 10, 10);
-			drawn = true;
-		}
+	public void reset() {
+		this.updateUI();
 	}
 	
 }
