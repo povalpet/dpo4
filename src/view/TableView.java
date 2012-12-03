@@ -77,14 +77,6 @@ public class TableView extends View {
 		this.rectangleTableValues.addRow(rectangle);
 	}
 	
-	/**
-	 * Vycisteni layoutu kdyz se zmackne reset button
-	 */
-	public void reset() {
-		this.circleTableValues.clear();
-		this.rectangleTableValues.clear();
-	}
-	
 	public void addCellChangeListener(TableModelListener l) {
 		circleTableValues.addTableModelListener(l);
 		rectangleTableValues.addTableModelListener(l);
@@ -92,7 +84,8 @@ public class TableView extends View {
 	
 	@Override
 	public void updateObserver() {
-		this.reset();
+		this.circleTableValues.clear();
+		this.rectangleTableValues.clear();
 		this.display(this.model.getAll());
 	}
 

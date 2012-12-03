@@ -34,20 +34,15 @@ public class DrawView extends View {
 	public void draw(Square square) {
 		graph.drawRect(square.getX(), square.getY(), square.getSize(), square.getSize());
 	}
-
+	
 	@Override
-	public void reset() {
+	public void updateObserver() {
 		repaint();
 	}
 	
 	@Override
-	public void updateObserver() {
-		reset();
-	}
-	
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		graph = g;
 		display(model.getAll());
 	}

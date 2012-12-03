@@ -27,6 +27,4 @@ public abstract class View extends JComponent implements Observer, Visitor {
 	}	
 	
 	
-	public abstract void reset();
-
 }
