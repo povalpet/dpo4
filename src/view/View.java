@@ -19,18 +19,13 @@ public abstract class View extends JComponent implements Observer, Visitor {
 		this.model = model;
 		this.model.attach(this);
 	}
-	
-	@Override
-	public void update() {
-		reset();
-		this.display(this.model.getAll());
-	}
-	
+		
 	public void display(Collection<IGeometry> collection) {
 		for (IGeometry geometry : collection) {
 			geometry.accept(this);
 		}
-	}
+	}	
+	
 	
 	public abstract void reset();
 

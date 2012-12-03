@@ -18,7 +18,7 @@ public class TableController extends AbstractController {
 	}
 
 	@Override
-	public void update() {
+	public void updateObserver() {
 		// TODO Auto-generated method stub
 	}
 	

@@ -89,5 +89,11 @@ public class TableView extends View {
 		circleTableValues.addTableModelListener(l);
 		rectangleTableValues.addTableModelListener(l);
 	}
+	
+	@Override
+	public void updateObserver() {
+		this.reset();
+		this.display(this.model.getAll());
+	}
 
 }

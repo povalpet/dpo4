@@ -71,7 +71,7 @@ public class GeometryModel implements Observable {
 	@Override
 	public void notifyObservers() {
 		for(Observer ob : observerList) {
-			ob.update();
+			ob.updateObserver();
 		}
 	}
 

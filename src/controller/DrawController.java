@@ -46,7 +46,7 @@ public class DrawController extends AbstractController implements MouseListener 
 	}
 
 	@Override
-	public void update() {
+	public void updateObserver() {
 		// TODO Auto-generated method stub
 		
 	}
