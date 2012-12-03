@@ -16,40 +16,18 @@ public class Frame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 2773168040909497332L;
+
 	
-//	public Frame(View leftView, View rightView) {
-//		setLayout(new BorderLayout());
-//		setSize(800, 500);
-//		setTitle("DPO 4: MVC");
-//		setResizable(false);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		Button clearButton = new Button("Clear all");
-//		
-//		Dimension halfSize = new Dimension(this.getWidth() / 2, this.getHeight() - clearButton.getHeight());
-//		
-//		leftView.setSize(halfSize);
-//		rightView.setSize(halfSize);
-//		
-//		Container contentPane = getContentPane();
-//		
-//		contentPane.add(rightView, BorderLayout.EAST);
-//		contentPane.add(leftView, BorderLayout.CENTER);
-//		contentPane.add(clearButton, BorderLayout.SOUTH);
-//		
-//		this.setVisible(true);
-//		
-//	}
-	
-	public Frame(View left, View right) {
+	public Frame(View left, View right, View button) {
 		setSize(810, 470);
 		setTitle("DPO 4: MVC");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		addComponentsToPane(this.getContentPane(), left, right);
+		addComponentsToPane(this.getContentPane(), left, right, button);
 		setVisible(true);		
 	}
 	
-	public void addComponentsToPane(final Container pane, View left, View right) {
+	public void addComponentsToPane(Container pane, View left, View right, View button) {
 		JPanel components = new JPanel();
 		components.setPreferredSize(new Dimension(800, 420));
 		FlowLayout layout = new FlowLayout();
@@ -58,12 +36,13 @@ public class Frame extends JFrame {
 		
 		left.setPreferredSize(new Dimension(485,410));
 		right.setPreferredSize(new Dimension(310,410));
+		button.setPreferredSize(new Dimension(400,23));
 		components.add(left);
 		components.add(right);
-		Button clearButton = new Button("Clear all");
+		//components.add(button);
 		
 		pane.add(components, BorderLayout.CENTER);
-		pane.add(clearButton, BorderLayout.SOUTH);
+		pane.add(button, BorderLayout.SOUTH);
 	}
 
 }

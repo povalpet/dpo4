@@ -1,28 +1,19 @@
 package view;
 
 import java.awt.Graphics;
-import javax.swing.JLayeredPane;
 import model.Circle;
 import model.GeometryModel;
 import model.Square;
 
 public class DrawView extends View {
 	
-	private JLayeredPane drawPane;
 	Graphics graph;
 	
 	private static final long serialVersionUID = 1955847228637320176L;
 
 	public DrawView(GeometryModel model) {
 		super(model);		
-		init();	
 		
-	}
-	
-	private void init() {
-		drawPane = new JLayeredPane();		
-		this.add(drawPane);
-		this.setVisible(true);
 	}
 
 	@Override
