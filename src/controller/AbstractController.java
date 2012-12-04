@@ -11,5 +11,6 @@ public abstract class AbstractController implements Observer {
 	public AbstractController(View view, GeometryModel model) {
 		this.view = view;
 		this.model = model;
+		model.attach(this);
 	}
 }

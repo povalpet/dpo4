@@ -2,9 +2,12 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+
 import observer.Observable;
 import observer.Observer;
 
@@ -14,7 +17,7 @@ public class GeometryModel implements Observable {
 	private static int id = 1;
 	
 	public GeometryModel() {
-		this.objectList = new HashMap<Integer, IGeometry>();
+		this.objectList = new TreeMap<Integer, IGeometry>();
 		this.observerList = new ArrayList<Observer>();
 	}
 	
@@ -31,6 +34,12 @@ public class GeometryModel implements Observable {
 		} else {
 			throw new IllegalArgumentException("Radius must be > 0.");
 		}
+	}
+
+	public void removeOldest() {
+		Set<Entry<Integer,IGeometry>> entrySet = this.objectList.entrySet();
+		Entry<Integer, IGeometry> next = entrySet.iterator().next();
+		this.objectList.remove(next.getKey());
 	}
 	
 	public void addNewRectangle(int xCoord, int yCoord, int size) {
@@ -65,7 +74,7 @@ public class GeometryModel implements Observable {
 
 	@Override
 	public void detach(Observer observer) {
-		// TODO Auto-generated method stub		
+		this.observerList.remove(observer);
 	}
 
 	@Override

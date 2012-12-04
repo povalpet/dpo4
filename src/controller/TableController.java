@@ -13,7 +13,8 @@ public class TableController extends AbstractController {
 	public TableController(TableView view, GeometryModel model) {
 		super(view, model);
 		
-		model.attach(this);
+		// tablecontroller je na modelu nezavisly
+		model.detach(this);
 		view.addCellChangeListener(new EditTableListener());
 	}
 
@@ -32,6 +33,7 @@ public class TableController extends AbstractController {
         public void tableChanged(TableModelEvent e) {
             if (e.getType() == TableModelEvent.UPDATE) {
             	int row = e.getFirstRow();
+				@SuppressWarnings("rawtypes")
 				Table table = (Table) e.getSource();
 				IGeometry geometry = table.getRow(row);
 				model.updateGeometry(geometry);

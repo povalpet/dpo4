@@ -26,7 +26,7 @@ public class Main {
 		new TableController(tableView, model);
 		new ButtonController(buttonView, model);
 		
-		Frame frame = new Frame(drawView, tableView, buttonView);
+		new Frame(drawView, tableView, buttonView);
 	}
 
 }

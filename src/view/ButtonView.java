@@ -21,7 +21,8 @@ public class ButtonView extends View{
 
 	public ButtonView(GeometryModel model) {
 		super(model);
-		
+		// zmeny modelu se tlacitka nijak netykaji
+		model.detach(this);
 		init();
 	}
 	
