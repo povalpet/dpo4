@@ -22,7 +22,7 @@ public class GeometryModel implements Observable {
 	}
 	
 	public void addNewCircle(int xCoord, int yCoord, int radius) {
-		if(radius > 0) {
+		if(isValid(xCoord, yCoord, radius)) {
 			IGeometry circle = new Circle();
 			circle.setX(xCoord);
 			circle.setY(yCoord);
@@ -43,7 +43,7 @@ public class GeometryModel implements Observable {
 	}
 	
 	public void addNewRectangle(int xCoord, int yCoord, int size) {
-		if(size > 0) {
+		if(isValid(xCoord, yCoord, size)) {
 			IGeometry rectangle = new Square();
 			rectangle.setX(xCoord);
 			rectangle.setY(yCoord);
@@ -89,9 +89,31 @@ public class GeometryModel implements Observable {
 	}
 	
 	public void updateGeometry(IGeometry geometry) {
-		this.objectList.remove(new Integer(geometry.getId()));
-		this.objectList.put(new Integer(geometry.getId()), geometry);
-		
-		this.notifyObservers();
+		if (isValid(geometry)) {
+			this.objectList.remove(new Integer(geometry.getId()));
+			this.objectList.put(new Integer(geometry.getId()), geometry);
+			
+			this.notifyObservers();
+		}
+	}
+	
+	/**
+	 * Zvaliduje geometry
+	 * @param geometry
+	 * @return
+	 */
+	public boolean isValid(IGeometry geometry) {
+		return isValid(geometry.getX(), geometry.getY(), geometry.getSize());
+	}
+	
+	/**
+	 * Zvaliduje x, y a size
+	 * @param x
+	 * @param y
+	 * @param radius
+	 * @return
+	 */
+	public boolean isValid(int x, int y, int radius) {
+		return radius > 0;
 	}
 }
